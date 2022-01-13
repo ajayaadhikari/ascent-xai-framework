@@ -1,0 +1,720 @@
+# baseURI: https://ontology.tno.nl/explainability
+# imports: file:///C:/Users/bouterca/TBCSEWorkspace/TopBraid/SKOS/skos-core.ttl.tbc
+# imports: http://purl.org/dc/elements/1.1/
+
+@prefix : <https://ontology.tno.nl/explainability#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontology.tno.nl/explainability>
+  a owl:Ontology ;
+  dcterms:contributor <https://www.linkedin.com/in/ajay-adhikari/> ;
+  dcterms:contributor <https://www.linkedin.com/in/ejwenink/> ;
+  dcterms:creator <https://www.linkedin.com/in/bouterca/> ;
+  dcterms:description """This ontology describes the various AI systems, use cases, and XAI algorithms through a collection of taxonomies. It is intended to be used in the ASCENT (Ai Sys-
+tem use Case Explanation oNTology) such that users can insert their use cases and AI systems. The ASCENT system should then return an appropriate XAI algorithm given the describes situation. Therefore this ontology contains, next to the conceptual model, instantiated data for several XAI algorithms, such as LIME.""" ;
+  dcterms:issued "2022-01-12" ;
+  dcterms:publisher <https://www.tno.nl> ;
+  dcterms:title "Explainable AI Ontology" ;
+  owl:imports <file:///C:/Users/bouterca/TBCSEWorkspace/TopBraid/SKOS/skos-core.ttl.tbc> ;
+  owl:imports <http://purl.org/dc/elements/1.1/> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+:AIExpert
+  a owl:Class ;
+  rdfs:label "AIExpert" ;
+  rdfs:subClassOf :Expert ;
+  skos:prefLabel "AIExpert" ;
+.
+:AIExpertUser
+  a :AIExpert ;
+  rdfs:label "AIExpert user" ;
+  skos:prefLabel "AIExpert user" ;
+.
+:AISystem
+  a owl:Class ;
+  rdfs:comment "An AI model that has been or will be trained on data following a particular algorithm." ;
+  rdfs:label "AI System" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:ANNSpecificStrategy
+  a :ModelSpecific ;
+  rdfs:label "ANNSpecific strategy" ;
+  skos:prefLabel "ANNSpecific strategy" ;
+.
+:AiFunctioningExplanandum
+  a owl:Class ;
+  
+  rdfs:label "Ai functioning explanandum" ;
+  rdfs:subClassOf :ExplanandumType ;
+  skos:prefLabel "Ai functioning explanandum" ;
+.
+:Audio
+  a :InputData ;
+  rdfs:label "Audio" ;
+  skos:prefLabel "Audio" ;
+.
+:Audit
+  a :ExplanationGoal ;
+  rdfs:label "Audit" ;
+  skos:prefLabel "Audit" ;
+.
+:Auditory
+  a :Modality ;
+  rdfs:label "Auditory" ;
+  skos:prefLabel "Auditory" ;
+.
+:CalibrateTrust
+  a :ExplanationGoal ;
+  rdfs:label "Calibrate trust" ;
+  skos:prefLabel "Calibrate trust" ;
+.
+:Classification
+  a :TaskType ;
+  rdfs:label "Classification" ;
+  skos:prefLabel "Classification" ;
+.
+:Clustering
+  a :TaskType ;
+  rdfs:label "Clustering" ;
+  skos:prefLabel "Clustering" ;
+.
+:Concept_1
+  a skos:Concept ;
+  rdfs:label "Concept 1" ;
+  skos:prefLabel "Concept 1" ;
+.
+:Concept_2
+  a skos:Concept ;
+  rdfs:label "Concept 2" ;
+  skos:prefLabel "Concept 2" ;
+.
+:Concept_3
+  a skos:Concept ;
+  rdfs:label "Concept 3" ;
+  skos:prefLabel "Concept 3" ;
+.
+:Confidence
+  a :AiFunctioningExplanandum ;
+  rdfs:label "Confidence" ;
+  skos:prefLabel "Confidence" ;
+.
+:Consultant
+  a :DomainExpert ;
+  rdfs:label "Consultant" ;
+  skos:prefLabel "Consultant" ;
+.
+:Contest
+  a :ExplanationGoal ;
+  rdfs:label "Contest" ;
+  skos:prefLabel "Contest" ;
+.
+:CounterfactualExplanation
+  a :ExampleBased ;
+  rdfs:label "Counterfactual explanation" ;
+  skos:prefLabel "Counterfactual explanation" ;
+.
+:DataCollection
+  a :DataExplanandum ;
+  rdfs:label "Data collection" ;
+  skos:prefLabel "Data collection" ;
+.
+:DataExplanandum
+  a owl:Class ;
+  
+  rdfs:label "Data explanandum" ;
+  rdfs:subClassOf :ExplanandumType ;
+  skos:prefLabel "Data explanandum" ;
+.
+:DataStatistics
+  a :DataExplanandum ;
+  rdfs:label "Data statistics" ;
+  skos:prefLabel "Data statistics" ;
+.
+:DecisionBoundary
+  a owl:Class ;
+  
+  rdfs:label "Decision boundary" ;
+  rdfs:subClassOf :AiFunctioningExplanandum ;
+  skos:prefLabel "Decision boundary" ;
+.
+:DecisionSupport
+  a :ExplanationGoal ;
+  rdfs:label "Decision support" ;
+  skos:prefLabel "Decision support" ;
+.
+:DesignPhase
+  a :ModelDevelopmentExplanandum ;
+  rdfs:label "Design phase" ;
+  skos:prefLabel "Design phase" ;
+.
+:DimensionalityReduction
+  a :TaskType ;
+  rdfs:label "Dimensionality reduction" ;
+  skos:prefLabel "Dimensionality reduction" ;
+.
+:Discover
+  a :ExplanationGoal ;
+  rdfs:label "Discover" ;
+  skos:prefLabel "Discover" ;
+.
+:DomainExpert
+  a owl:Class ;
+  rdfs:label "Domain expert" ;
+  rdfs:subClassOf :Expert ;
+  skos:prefLabel "Domain expert" ;
+.
+:EvaluationPhase
+  a :ModelDevelopmentExplanandum ;
+  rdfs:label "Evaluation phase" ;
+  skos:prefLabel "Evaluation phase" ;
+.
+:ExampleBased
+  a owl:Class ;
+  rdfs:label "Example based" ;
+  rdfs:subClassOf :ExplanationType ;
+  skos:prefLabel "Example based" ;
+.
+:Expert
+  a owl:Class ;
+  rdfs:label "Expert" ;
+  rdfs:subClassOf :UserBackgroundType ;
+  skos:prefLabel "Expert" ;
+.
+:ExplanandumType
+  a owl:Class ;
+  
+  rdfs:label "Explanandum type" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Explanandum type" ;
+.
+:ExplanationGoal
+  a owl:Class ;
+  
+  rdfs:label "Explanation goal" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Explanation goal" ;
+.
+:ExplanationService
+  a owl:Class ;
+  rdfs:comment "An explanation service is a particular XAI algorithm that provides an explanation the AI model it's associated to." ;
+  rdfs:label "Explanation service" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:ExplanationType
+  a owl:Class ;
+  rdfs:label "Explanation type" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Explanation type" ;
+.
+:FeatureAttribution
+  a owl:Class ;
+  rdfs:label "Feature attribution" ;
+  rdfs:subClassOf :ExplanationType ;
+  skos:prefLabel "Feature attribution" ;
+.
+:FeatureAttributionExplanation
+  a :FeatureAttribution ;
+  rdfs:label "Feature attribution explanation" ;
+  skos:prefLabel "Feature attribution explanation" ;
+.
+:GlobalDecisionBoundary
+  a :DecisionBoundary ;
+  rdfs:label "Global decision boundary" ;
+  skos:prefLabel "Global decision boundary" ;
+.
+:Graph
+  a :InputData ;
+  rdfs:label "Graph" ;
+  skos:prefLabel "Graph" ;
+.
+:High
+  a :TimePressureLevel ;
+  rdfs:label "High" ;
+  skos:prefLabel "High" ;
+.
+:HighRisk
+  a :RiskLevel ;
+  rdfs:label "High risk" ;
+  skos:prefLabel "High risk" ;
+.
+:Image
+  a :InputData ;
+  rdfs:label "Image" ;
+  skos:prefLabel "Image" ;
+.
+:Improve
+  a :ExplanationGoal ;
+  rdfs:label "Improve" ;
+  skos:prefLabel "Improve" ;
+.
+:InputData
+  a owl:Class ;
+  
+  rdfs:label "Input data" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Input data" ;
+.
+:Interactive
+  a :Interactivity ;
+  rdfs:label "Interactive" ;
+  skos:prefLabel "Interactive" ;
+.
+:Interactivity
+  a owl:Class ;
+  rdfs:label "Interactivity" ;
+  rdfs:subClassOf :Manner ;
+  skos:prefLabel "Interactivity" ;
+.
+:Justify
+  a :ExplanationGoal ;
+  rdfs:label "Justify" ;
+  skos:prefLabel "Justify" ;
+.
+:LIMEExplanationAlgorithm
+  a :ExplanationService ;
+  rdfs:label "LIMEExplanation algorithm" ;
+  skos:prefLabel "LIMEExplanation algorithm" ;
+  :hasExplanandumType :LocalDecisionBoundary ;
+  :hasExplanationType :FeatureAttributionExplanation ;
+  :hasManner :Static ;
+  :hasManner :Visual ;
+  :hasStrategyType :ModelAgnosticStrategy ;
+  :negativeAssociationWith :Audio ;
+  :negativeAssociationWith :CalibrateTrust ;
+  :negativeAssociationWith :Clustering ;
+  :negativeAssociationWith :DimensionalityReduction ;
+  :negativeAssociationWith :Graph ;
+  :negativeAssociationWith :HighRisk ;
+  :negativeAssociationWith :ReinforcementLearning ;
+  :negativeAssociationWith :Unsupervised ;
+  :negativeAssociationWith :Video ;
+  :positiveAssociationWith :AIExpertUser ;
+  :positiveAssociationWith :Classification ;
+  :positiveAssociationWith :Consultant ;
+  :positiveAssociationWith :High ;
+  :positiveAssociationWith :Image ;
+  :positiveAssociationWith :Low ;
+  :positiveAssociationWith :NotHighRisk ;
+  :positiveAssociationWith :Regression ;
+  :positiveAssociationWith :Researcher ;
+  :positiveAssociationWith :Supervised ;
+  :positiveAssociationWith :Tabular ;
+  :positiveAssociationWith :TestSubject ;
+  :positiveAssociationWith :Text ;
+  :unknownAssociationWith :Audit ;
+  :unknownAssociationWith :Contest ;
+  :unknownAssociationWith :DecisionSupport ;
+  :unknownAssociationWith :Discover ;
+  :unknownAssociationWith :Improve ;
+  :unknownAssociationWith :Justify ;
+  :unknownAssociationWith :Persuade ;
+.
+:LocalDecisionBoundary
+  a :DecisionBoundary ;
+  rdfs:label "Local decision boundary" ;
+  skos:prefLabel "Local decision boundary" ;
+.
+:Low
+  a :TimePressureLevel ;
+  rdfs:label "Low" ;
+  skos:prefLabel "Low" ;
+.
+:Manner
+  a owl:Class ;
+  rdfs:label "Manner" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Manner" ;
+.
+:Modality
+  a owl:Class ;
+  rdfs:label "Modality" ;
+  rdfs:subClassOf :Manner ;
+  skos:prefLabel "Modality" ;
+.
+:ModelAgnostic
+  a owl:Class ;
+  
+  rdfs:label "Model agnostic" ;
+  rdfs:subClassOf :PostHoc ;
+  skos:prefLabel "Model agnostic" ;
+.
+:ModelAgnosticStrategy
+  a :ModelAgnostic ;
+  rdfs:label "Model agnostic strategy" ;
+  skos:prefLabel "Model agnostic strategy" ;
+.
+:ModelDevelopmentExplanandum
+  a owl:Class ;
+  
+  rdfs:label "Model development explanandum" ;
+  rdfs:subClassOf :ExplanandumType ;
+  skos:prefLabel "Model development explanandum" ;
+.
+:ModelSpecific
+  a owl:Class ;
+  
+  rdfs:label "Model specific" ;
+  rdfs:subClassOf :PostHoc ;
+  skos:prefLabel "Model specific" ;
+.
+:ModelSpecificStrategy
+  a :ModelSpecific ;
+  rdfs:label "Model specific strategy" ;
+  skos:prefLabel "Model specific strategy" ;
+.
+:ModelType
+  a owl:Class ;
+  
+  rdfs:label "Model type" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Model type" ;
+.
+:NotHighRisk
+  a :RiskLevel ;
+  rdfs:label "Not high risk" ;
+  skos:prefLabel "Not high risk" ;
+.
+:Persuade
+  a :ExplanationGoal ;
+  rdfs:label "Persuade" ;
+  skos:prefLabel "Persuade" ;
+.
+:PostHoc
+  a owl:Class ;
+  
+  rdfs:label "Post hoc" ;
+  rdfs:subClassOf :StrategyType ;
+  skos:prefLabel "Post hoc" ;
+.
+:PostHocStrategy
+  a :PostHoc ;
+  rdfs:label "Post hoc strategy" ;
+  skos:prefLabel "Post hoc strategy" ;
+.
+:PreprocessingPhase
+  a :ModelDevelopmentExplanandum ;
+  rdfs:label "Preprocessing" ;
+  skos:prefLabel "Preprocessing" ;
+.
+:PrototypicalExplanation
+  a :ExampleBased ;
+  rdfs:label "Prototypical explanation" ;
+  skos:prefLabel "Prototypical explanation" ;
+  :associationWith :TestSubject ;
+.
+:Regression
+  a :TaskType ;
+  rdfs:label "Regression" ;
+  skos:prefLabel "Regression" ;
+.
+:ReinforcementLearning
+  a :ModelType ;
+  rdfs:label "Reinforcement learning" ;
+  skos:prefLabel "Reinforcement learning" ;
+.
+:Researcher
+  a :DomainExpert ;
+  rdfs:label "Researcher" ;
+  skos:prefLabel "Researcher" ;
+.
+:RiskLevel
+  a owl:Class ;
+  
+  rdfs:label "Risk level" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Risk level" ;
+.
+:RulesBased
+  a owl:Class ;
+  rdfs:label "Rules based" ;
+  rdfs:subClassOf :ExplanationType ;
+  skos:prefLabel "Rules based" ;
+.
+:RulesBasedExplanation
+  a :RulesBased ;
+  rdfs:label "Rules based explanation" ;
+  skos:prefLabel "Rules based explanation" ;
+.
+:SimilarInstancesExplanation
+  a :ExampleBased ;
+  rdfs:label "Similar instances explanation" ;
+  skos:prefLabel "Similar instances explanation" ;
+  :associationWith :Consultant ;
+  :associationWith :TestSubject ;
+.
+:Smell
+  a :Modality ;
+  rdfs:label "Smell" ;
+  skos:prefLabel "Smell" ;
+.
+:Speech
+  a :Modality ;
+  rdfs:label "Speech" ;
+  owl:sameAs :Auditory ;
+  skos:prefLabel "Speech" ;
+.
+:Static
+  a :Interactivity ;
+  rdfs:label "Static" ;
+  skos:prefLabel "Static" ;
+.
+:StrategyType
+  a owl:Class ;
+  
+  rdfs:label "Strategy type" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Strategy type" ;
+.
+:Subject
+  a owl:Class ;
+  rdfs:label "Subject" ;
+  rdfs:subClassOf :UserBackgroundType ;
+  skos:prefLabel "Subject" ;
+.
+:Supervised
+  a :ModelType ;
+  rdfs:label "Supervised" ;
+  skos:prefLabel "Supervised" ;
+.
+:Tabular
+  a :InputData ;
+  rdfs:label "Tabular" ;
+  skos:prefLabel "Tabular" ;
+.
+:Tactile
+  a :Modality ;
+  rdfs:label "Tactile" ;
+  skos:prefLabel "Tactile" ;
+.
+:TaskContext
+  a owl:Class ;
+  
+  rdfs:label "Task context" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Task context" ;
+.
+:TaskType
+  a owl:Class ;
+  
+  rdfs:label "Task type" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Task type" ;
+.
+:Taste
+  a :Modality ;
+  rdfs:label "Taste" ;
+  skos:prefLabel "Taste" ;
+.
+:TestSubject
+  a :Subject ;
+  rdfs:label "Test subject" ;
+  skos:prefLabel "Test subject" ;
+.
+:Text
+  a :InputData ;
+  rdfs:label "Text" ;
+  skos:prefLabel "Text" ;
+.
+:TimePressureLevel
+  a owl:Class ;
+  rdfs:label "Time pressure level" ;
+  rdfs:subClassOf owl:Thing ;
+  skos:prefLabel "Time pressure level" ;
+.
+:TrainingPhase
+  a :ModelDevelopmentExplanandum ;
+  rdfs:label "Training phase" ;
+  skos:prefLabel "Training phase" ;
+.
+:TransparentByDesign
+  a owl:Class ;
+  
+  rdfs:label "Transparent by design" ;
+  rdfs:subClassOf :StrategyType ;
+  skos:prefLabel "Transparent by design" ;
+.
+:TransparentByDesignStrategy
+  a :TransparentByDesign ;
+  rdfs:label "Transparent by design strategy" ;
+  skos:prefLabel "Transparent by design strategy" ;
+.
+:Unsupervised
+  a :ModelType ;
+  rdfs:label "Unsupervised" ;
+  skos:prefLabel "Unsupervised" ;
+.
+:UseCase
+  a owl:Class ;
+  rdfs:comment "A person or organisation that may employ a particular AI model." ;
+  rdfs:label "Use case" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:UserBackgroundType
+  a owl:Class ;
+  rdfs:label "User background type" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Video
+  a :InputData ;
+  rdfs:label "Video" ;
+  skos:prefLabel "Video" ;
+.
+:Visual
+  a :Modality ;
+  rdfs:label "Visual" ;
+  skos:prefLabel "Visual" ;
+.
+:associationWith
+  a owl:ObjectProperty ;
+  rdfs:comment "The relation between this explanation service and a particular property may have been researched, which may have lead to a result whether this explanation service well suited for the property in the range of this property. The result may also be that the explanation service is not suited or that the result is neutral. It may also be explicitly assigned as a relation that is yet uninvestigated." ;
+  rdfs:domain :ExplanationService ;
+  rdfs:label "association with" ;
+  skos:prefLabel "association with" ;
+.
+:employs
+  a owl:ObjectProperty ;
+  rdfs:domain :UseCase ;
+  rdfs:label "employs" ;
+  rdfs:range :AISystem ;
+  owl:inverseOf :isEmployedIn ;
+.
+:explainsSystem
+  a owl:ObjectProperty ;
+  rdfs:domain :ExplanationService ;
+  rdfs:label "explains system" ;
+  rdfs:range :AISystem ;
+.
+:hasExplanandumType
+  a owl:ObjectProperty ;
+  rdfs:domain :ExplanationService ;
+  rdfs:label "has explanandum type" ;
+  rdfs:range :ExplanandumType ;
+  skos:prefLabel "has explanandum type" ;
+.
+:hasExplanationGoal
+  a owl:ObjectProperty ;
+  rdfs:domain :UseCase ;
+  rdfs:label "has explanation goal" ;
+  rdfs:range :ExplanationGoal ;
+  skos:prefLabel "has explanation goal" ;
+.
+:hasExplanationType
+  a owl:ObjectProperty ;
+  rdfs:domain :ExplanationService ;
+  rdfs:label "has explanation type" ;
+  rdfs:range :ExplanationType ;
+  skos:prefLabel "has explanation type" ;
+.
+:hasInputData
+  a owl:ObjectProperty ;
+  rdfs:domain :AISystem ;
+  rdfs:label "has input data" ;
+  rdfs:range :InputData ;
+  skos:prefLabel "has input data" ;
+.
+:hasManner
+  a owl:ObjectProperty ;
+  rdfs:domain :ExplanationService ;
+  rdfs:label "has manner" ;
+  rdfs:range :Manner ;
+  skos:prefLabel "has manner" ;
+.
+:hasModelType
+  a owl:ObjectProperty ;
+  rdfs:domain :AISystem ;
+  rdfs:label "has model type" ;
+  rdfs:range :ModelType ;
+  skos:prefLabel "has model type" ;
+.
+:hasRiskLevel
+  a owl:ObjectProperty ;
+  rdfs:domain :TaskContext ;
+  rdfs:label "has risk level" ;
+  rdfs:range :RiskLevel ;
+  skos:prefLabel "has risk level" ;
+.
+:hasStrategyType
+  a owl:ObjectProperty ;
+  rdfs:domain :ExplanationService ;
+  rdfs:label "has strategy type" ;
+  rdfs:range :StrategyType ;
+  skos:prefLabel "has strategy type" ;
+.
+:hasTaskContext
+  a owl:ObjectProperty ;
+  rdfs:domain :UseCase ;
+  rdfs:label "has task context" ;
+  rdfs:range :TaskContext ;
+  skos:prefLabel "has task context" ;
+.
+:hasTaskType
+  a owl:ObjectProperty ;
+  rdfs:domain :AISystem ;
+  rdfs:label "has task type" ;
+  rdfs:range :TaskType ;
+  skos:prefLabel "has task type" ;
+.
+:hasTimePressureLevel
+  a owl:ObjectProperty ;
+  rdfs:domain :TaskContext ;
+  rdfs:label "has time pressure level" ;
+  rdfs:range :TimePressureLevel ;
+  skos:prefLabel "has time pressure level" ;
+.
+:involvesUserBackground
+  a owl:ObjectProperty ;
+  rdfs:domain :UseCase ;
+  rdfs:label "involves user background" ;
+  rdfs:range :UserBackgroundType ;
+  skos:prefLabel "involves user background" ;
+.
+:isEmployedIn
+  a owl:ObjectProperty ;
+  rdfs:domain :AISystem ;
+  rdfs:label "is employed in" ;
+  rdfs:range :UseCase ;
+.
+:learnsFrom
+  a owl:ObjectProperty ;
+  rdfs:domain :AISystem ;
+  rdfs:label "learns from" ;
+  rdfs:range :InputData ;
+  skos:prefLabel "learns from" ;
+.
+:negativeAssociationWith
+  a owl:ObjectProperty ;
+  rdfs:label "has negative correlation with" ;
+  rdfs:subPropertyOf :associationWith ;
+  skos:prefLabel "has negative correlation with" ;
+.
+:neutralAssociationWith
+  a owl:ObjectProperty ;
+  rdfs:label "has neutral correlation with" ;
+  rdfs:subPropertyOf :associationWith ;
+  skos:prefLabel "has neutral correlation with" ;
+.
+:positiveAssociationWith
+  a owl:ObjectProperty ;
+  rdfs:label "has positive correlation with" ;
+  rdfs:subPropertyOf :associationWith ;
+  skos:prefLabel "has positive correlation with" ;
+.
+:providesExplanationService
+  a owl:ObjectProperty ;
+  rdfs:domain :AISystem ;
+  rdfs:label "provides explanation service" ;
+  rdfs:range :ExplanationService ;
+  owl:inverseOf :explainsSystem ;
+.
+:unknownAssociationWith
+  a owl:ObjectProperty ;
+  rdfs:label "unknown correlation with" ;
+  rdfs:subPropertyOf :associationWith ;
+  skos:prefLabel "unknown correlation with" ;
+.

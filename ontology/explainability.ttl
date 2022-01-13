@@ -26,15 +26,9 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 :AIExpert
-  a owl:Class ;
+  a :Expert ;
   rdfs:label "AIExpert" ;
-  rdfs:subClassOf :Expert ;
   skos:prefLabel "AIExpert" ;
-.
-:AIExpertUser
-  a :AIExpert ;
-  rdfs:label "AIExpert user" ;
-  skos:prefLabel "AIExpert user" ;
 .
 :AISystem
   a owl:Class ;
@@ -49,7 +43,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :AiFunctioningExplanandum
   a owl:Class ;
-  
   rdfs:label "Ai functioning explanandum" ;
   rdfs:subClassOf :ExplanandumType ;
   skos:prefLabel "Ai functioning explanandum" ;
@@ -126,7 +119,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :DataExplanandum
   a owl:Class ;
-  
   rdfs:label "Data explanandum" ;
   rdfs:subClassOf :ExplanandumType ;
   skos:prefLabel "Data explanandum" ;
@@ -138,7 +130,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :DecisionBoundary
   a owl:Class ;
-  
   rdfs:label "Decision boundary" ;
   rdfs:subClassOf :AiFunctioningExplanandum ;
   skos:prefLabel "Decision boundary" ;
@@ -188,23 +179,21 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :ExplanandumType
   a owl:Class ;
-  
   rdfs:label "Explanandum type" ;
   rdfs:subClassOf owl:Thing ;
   skos:prefLabel "Explanandum type" ;
 .
+:ExplanationAlgorithm
+  a owl:Class ;
+  rdfs:comment "An explanation algorithm is a particular XAI algorithm that provides an explanation the AI model it's associated to." ;
+  rdfs:label "Explanation algorithm" ;
+  rdfs:subClassOf owl:Thing ;
+.
 :ExplanationGoal
   a owl:Class ;
-  
   rdfs:label "Explanation goal" ;
   rdfs:subClassOf owl:Thing ;
   skos:prefLabel "Explanation goal" ;
-.
-:ExplanationService
-  a owl:Class ;
-  rdfs:comment "An explanation service is a particular XAI algorithm that provides an explanation the AI model it's associated to." ;
-  rdfs:label "Explanation service" ;
-  rdfs:subClassOf owl:Thing ;
 .
 :ExplanationType
   a owl:Class ;
@@ -233,15 +222,15 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   rdfs:label "Graph" ;
   skos:prefLabel "Graph" ;
 .
-:High
-  a :TimePressureLevel ;
-  rdfs:label "High" ;
-  skos:prefLabel "High" ;
-.
 :HighRisk
   a :RiskLevel ;
   rdfs:label "High risk" ;
   skos:prefLabel "High risk" ;
+.
+:HighTimePressure
+  a :TimePressureLevel ;
+  rdfs:label "High" ;
+  skos:prefLabel "High" ;
 .
 :Image
   a :InputData ;
@@ -255,7 +244,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :InputData
   a owl:Class ;
-  
   rdfs:label "Input data" ;
   rdfs:subClassOf owl:Thing ;
   skos:prefLabel "Input data" ;
@@ -277,7 +265,7 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   skos:prefLabel "Justify" ;
 .
 :LIMEExplanationAlgorithm
-  a :ExplanationService ;
+  a :ExplanationAlgorithm ;
   rdfs:label "LIMEExplanation algorithm" ;
   skos:prefLabel "LIMEExplanation algorithm" ;
   :hasExplanandumType :LocalDecisionBoundary ;
@@ -294,18 +282,16 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   :negativeAssociationWith :ReinforcementLearning ;
   :negativeAssociationWith :Unsupervised ;
   :negativeAssociationWith :Video ;
-  :positiveAssociationWith :AIExpertUser ;
   :positiveAssociationWith :Classification ;
   :positiveAssociationWith :Consultant ;
-  :positiveAssociationWith :High ;
+  :positiveAssociationWith :HighTimePressure ;
   :positiveAssociationWith :Image ;
-  :positiveAssociationWith :Low ;
-  :positiveAssociationWith :NotHighRisk ;
+  :positiveAssociationWith :LowRisk ;
+  :positiveAssociationWith :LowTimePressure ;
   :positiveAssociationWith :Regression ;
   :positiveAssociationWith :Researcher ;
   :positiveAssociationWith :Supervised ;
   :positiveAssociationWith :Tabular ;
-  :positiveAssociationWith :TestSubject ;
   :positiveAssociationWith :Text ;
   :unknownAssociationWith :Audit ;
   :unknownAssociationWith :Contest ;
@@ -320,7 +306,12 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   rdfs:label "Local decision boundary" ;
   skos:prefLabel "Local decision boundary" ;
 .
-:Low
+:LowRisk
+  a :RiskLevel ;
+  rdfs:label "Low risk" ;
+  skos:prefLabel "Low risk" ;
+.
+:LowTimePressure
   a :TimePressureLevel ;
   rdfs:label "Low" ;
   skos:prefLabel "Low" ;
@@ -339,7 +330,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :ModelAgnostic
   a owl:Class ;
-  
   rdfs:label "Model agnostic" ;
   rdfs:subClassOf :PostHoc ;
   skos:prefLabel "Model agnostic" ;
@@ -351,14 +341,12 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :ModelDevelopmentExplanandum
   a owl:Class ;
-  
   rdfs:label "Model development explanandum" ;
   rdfs:subClassOf :ExplanandumType ;
   skos:prefLabel "Model development explanandum" ;
 .
 :ModelSpecific
   a owl:Class ;
-  
   rdfs:label "Model specific" ;
   rdfs:subClassOf :PostHoc ;
   skos:prefLabel "Model specific" ;
@@ -370,15 +358,9 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :ModelType
   a owl:Class ;
-  
   rdfs:label "Model type" ;
   rdfs:subClassOf owl:Thing ;
   skos:prefLabel "Model type" ;
-.
-:NotHighRisk
-  a :RiskLevel ;
-  rdfs:label "Not high risk" ;
-  skos:prefLabel "Not high risk" ;
 .
 :Persuade
   a :ExplanationGoal ;
@@ -387,7 +369,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :PostHoc
   a owl:Class ;
-  
   rdfs:label "Post hoc" ;
   rdfs:subClassOf :StrategyType ;
   skos:prefLabel "Post hoc" ;
@@ -406,7 +387,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   a :ExampleBased ;
   rdfs:label "Prototypical explanation" ;
   skos:prefLabel "Prototypical explanation" ;
-  :associationWith :TestSubject ;
 .
 :Regression
   a :TaskType ;
@@ -425,7 +405,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :RiskLevel
   a owl:Class ;
-  
   rdfs:label "Risk level" ;
   rdfs:subClassOf owl:Thing ;
   skos:prefLabel "Risk level" ;
@@ -446,7 +425,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   rdfs:label "Similar instances explanation" ;
   skos:prefLabel "Similar instances explanation" ;
   :associationWith :Consultant ;
-  :associationWith :TestSubject ;
 .
 :Smell
   a :Modality ;
@@ -466,15 +444,13 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :StrategyType
   a owl:Class ;
-  
   rdfs:label "Strategy type" ;
   rdfs:subClassOf owl:Thing ;
   skos:prefLabel "Strategy type" ;
 .
 :Subject
-  a owl:Class ;
+  a :UserBackgroundType ;
   rdfs:label "Subject" ;
-  rdfs:subClassOf :UserBackgroundType ;
   skos:prefLabel "Subject" ;
 .
 :Supervised
@@ -494,14 +470,12 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :TaskContext
   a owl:Class ;
-  
   rdfs:label "Task context" ;
   rdfs:subClassOf owl:Thing ;
   skos:prefLabel "Task context" ;
 .
 :TaskType
   a owl:Class ;
-  
   rdfs:label "Task type" ;
   rdfs:subClassOf owl:Thing ;
   skos:prefLabel "Task type" ;
@@ -510,11 +484,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   a :Modality ;
   rdfs:label "Taste" ;
   skos:prefLabel "Taste" ;
-.
-:TestSubject
-  a :Subject ;
-  rdfs:label "Test subject" ;
-  skos:prefLabel "Test subject" ;
 .
 :Text
   a :InputData ;
@@ -534,7 +503,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :TransparentByDesign
   a owl:Class ;
-  
   rdfs:label "Transparent by design" ;
   rdfs:subClassOf :StrategyType ;
   skos:prefLabel "Transparent by design" ;
@@ -573,7 +541,7 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 :associationWith
   a owl:ObjectProperty ;
   rdfs:comment "The relation between this explanation service and a particular property may have been researched, which may have lead to a result whether this explanation service well suited for the property in the range of this property. The result may also be that the explanation service is not suited or that the result is neutral. It may also be explicitly assigned as a relation that is yet uninvestigated." ;
-  rdfs:domain :ExplanationService ;
+  rdfs:domain :ExplanationAlgorithm ;
   rdfs:label "association with" ;
   skos:prefLabel "association with" ;
 .
@@ -586,13 +554,13 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :explainsSystem
   a owl:ObjectProperty ;
-  rdfs:domain :ExplanationService ;
+  rdfs:domain :ExplanationAlgorithm ;
   rdfs:label "explains system" ;
   rdfs:range :AISystem ;
 .
 :hasExplanandumType
   a owl:ObjectProperty ;
-  rdfs:domain :ExplanationService ;
+  rdfs:domain :ExplanationAlgorithm ;
   rdfs:label "has explanandum type" ;
   rdfs:range :ExplanandumType ;
   skos:prefLabel "has explanandum type" ;
@@ -606,7 +574,7 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :hasExplanationType
   a owl:ObjectProperty ;
-  rdfs:domain :ExplanationService ;
+  rdfs:domain :ExplanationAlgorithm ;
   rdfs:label "has explanation type" ;
   rdfs:range :ExplanationType ;
   skos:prefLabel "has explanation type" ;
@@ -620,7 +588,7 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :hasManner
   a owl:ObjectProperty ;
-  rdfs:domain :ExplanationService ;
+  rdfs:domain :ExplanationAlgorithm ;
   rdfs:label "has manner" ;
   rdfs:range :Manner ;
   skos:prefLabel "has manner" ;
@@ -641,7 +609,7 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
 .
 :hasStrategyType
   a owl:ObjectProperty ;
-  rdfs:domain :ExplanationService ;
+  rdfs:domain :ExplanationAlgorithm ;
   rdfs:label "has strategy type" ;
   rdfs:range :StrategyType ;
   skos:prefLabel "has strategy type" ;
@@ -666,6 +634,12 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   rdfs:label "has time pressure level" ;
   rdfs:range :TimePressureLevel ;
   skos:prefLabel "has time pressure level" ;
+.
+:inconclusiveAssociationWith
+  a owl:ObjectProperty ;
+  rdfs:label "has inconclusive correlation with" ;
+  rdfs:subPropertyOf :associationWith ;
+  skos:prefLabel "has inconclusive correlation with" ;
 .
 :involvesUserBackground
   a owl:ObjectProperty ;
@@ -693,12 +667,6 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   rdfs:subPropertyOf :associationWith ;
   skos:prefLabel "has negative correlation with" ;
 .
-:neutralAssociationWith
-  a owl:ObjectProperty ;
-  rdfs:label "has neutral correlation with" ;
-  rdfs:subPropertyOf :associationWith ;
-  skos:prefLabel "has neutral correlation with" ;
-.
 :positiveAssociationWith
   a owl:ObjectProperty ;
   rdfs:label "has positive correlation with" ;
@@ -709,7 +677,7 @@ tem use Case Explanation oNTology) such that users can insert their use cases an
   a owl:ObjectProperty ;
   rdfs:domain :AISystem ;
   rdfs:label "provides explanation service" ;
-  rdfs:range :ExplanationService ;
+  rdfs:range :ExplanationAlgorithm ;
   owl:inverseOf :explainsSystem ;
 .
 :unknownAssociationWith
